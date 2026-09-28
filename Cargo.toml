@@ -1,0 +1,18 @@
+[package]
+name = "local-shamir"
+version = "1.0.0"
+edition = "2021"
+description = "A fully local Shamir Secret Sharing tool over GF(2^8), no external services"
+license = "MIT"
+
+[lib]
+name = "local_shamir"
+path = "src/lib.rs"
+
+[[bin]]
+name = "local-shamir"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3
+lto = true
