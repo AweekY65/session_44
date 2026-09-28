@@ -1,0 +1,21 @@
+[package]
+name = "local-sss"
+version = "1.0.0"
+edition = "2021"
+description = "Local-only Shamir Secret Sharing over GF(2^8) for small binary secrets"
+license = "MIT"
+
+[lib]
+name = "local_sss"
+path = "src/lib.rs"
+
+[[bin]]
+name = "sss"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = 3
+
+# Intentionally no external dependencies: every cryptographic primitive
+# (GF(2^8) arithmetic, SHA-256, CSPRNG access via /dev/urandom) is implemented
+# in-tree so the tool never contacts a package mirror, KMS or remote service.
